@@ -5,7 +5,8 @@ const Rules = () => {
 
     return (
         <div>
-            Rules
+            <h2>Rules</h2>
+            {/* Bulleted list here for rules */}
         </div>
     )
 }
