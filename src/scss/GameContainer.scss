@@ -1,0 +1,20 @@
+.game-container {
+    display: flex;
+    // justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+
+    .rules-container {
+        display: flex;
+        align-self: flex-start;
+
+        h2 {
+            margin-top: 0;   
+        }
+    }
+
+    .grid-presets-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
