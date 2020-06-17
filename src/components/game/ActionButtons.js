@@ -1,11 +1,13 @@
 import React from 'react';
-
+import ActionButton from './ActionButton.js';
 
 const ActionButtons = () => {
 
     return (
-        <div>
-            ActionButtons
+        <div className="action-btns-container">
+            <ActionButton />
+            <ActionButton />
+            <ActionButton />
         </div>
     )
 }

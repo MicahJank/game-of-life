@@ -1,11 +1,16 @@
 import React from 'react';
 
+import Preset from './Preset.js';
+
 
 const Presets = () => {
 
     return (
-        <div>
-            Presets
+        <div className="presets-container">
+            <Preset />
+            <Preset />
+            <Preset />
+            <Preset />
         </div>
     )
 }

@@ -1,9 +1,10 @@
 import React from 'react';
+import { Header } from 'semantic-ui-react';
 
 const Title = () => {
 
     return (
-        <h1>Conway's Game of Life</h1>
+        <Header as='h1'>Conway's Game of Life</Header>
     )
 }
 
