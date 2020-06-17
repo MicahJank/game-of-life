@@ -1,8 +1,7 @@
 .game-container {
     display: flex;
     // justify-content: center;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-evenly;
 
     
     .grid-presets-container {
@@ -14,28 +13,44 @@
     .presets-container {
         display: flex;
         flex-direction: column;
-        height: 100%;
-        width: 10%;
+        justify-content: space-between;
+        width: 30%;
         
         .preset-container {
-            width: 100%;
             align-items: center;
             display: flex;
+            justify-content: space-around;
+            width: 100%;
             
             img {
-                width: 100%;
+                width: 30%;
             }
+        }
+    }
+
+    .grid-presets {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .grid {
+            width: 80%;
         }
     }
     
 
     .rules-container {
         display: flex;
-        align-self: flex-start;
-        width: 30%;
+        justify-content: center;
+        width: 20%;
     
         h2 {
             margin-top: 0;   
         }
+    }
+
+    .action-btns-container {
+        display: flex;
+        justify-content: flex-start;
     }
 }

@@ -14,10 +14,13 @@ const GameContainer = () => {
         <Container className="game-container">
             <div className="grid-presets-container">
                 <Header as='h2'>Generation: # </Header>
-                <Grid />
+                <div className="grid-presets">
+                    <Grid />
+                    <Presets />
+
+                </div>
                 <ActionButtons />
             </div>
-                <Presets />
                 <Rules />
         </Container>
     )

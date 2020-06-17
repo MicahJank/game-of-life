@@ -8,8 +8,8 @@ const Preset = () => {
 
     return (
         <div className="preset-container">
-            <Image src={placeholder} size='small' fluid/>
-            <Button>Preset</Button>
+            <Image src={placeholder} size='small' />
+            <button>Preset</button>
         </div>
     )
 }
