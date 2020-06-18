@@ -3,12 +3,11 @@ import React, { useState, useEffect } from 'react';
 
 const Cell = ({ size, active }) => {
 
-    const [cellActive, setCellActive] = useState(false);
+    const [cellActive, setCellActive] = useState(active);
 
     const cellStyles = { 
         width: size, 
         height: size, 
-        // backgroundColor: cellActive ? `black` : `` 
     }
 
     return (

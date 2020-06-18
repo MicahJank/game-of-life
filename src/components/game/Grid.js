@@ -10,41 +10,41 @@ import '../../scss/Grid.scss';
  const boardHeight = cellSize * cellSize;
  const boardWidth = cellSize * cellSize;
 
-// caclulate how many rows and columns there are
-const boardRows = boardHeight / cellSize;
-const boardCols = boardWidth / cellSize;
+const generateInitialCellBlocks = () => {
+    let cellArray = [];
+    for (let i=0; i < cellSize*cellSize; i++) {
+        cellArray.push(<Cell cellIndex={i} size={cellSize} active={false} />);
+    }
+   
+    // using the code below i think i can figure out a way to set up initial blocks being preset with the preset buttons
+    // console.log(cellArray[0])
+    // cellArray[0] = <Cell cellIndex={0} size={cellSize} active={true} />
 
-// const createBoard = (numOfCols, numOfRows) => {
-//     let board = new Array(numOfRows);
 
-//     for (let y = 0; y < numOfRows; y++) {
-//         board[y] = new Array(numOfCols);
-//     }
-
-//     return board;
-// }
-
-const createCells = () => {
-    let cellArray = Array.from({ length: cellSize * cellSize});
-    
     return cellArray;
+}
+
+const toggleActive = (active) => {
+    return !active;
 }
 
 const Grid = () => {  
     // Tracks board state
-    const [board, setBoard] = useState([]);
-    const [cells, setCells] = useState([]);
+    // 
+    const [currentCells, setCurrentCells] = useState([]);
+    const [nextCells, setNextCells] = useState([]);
 
     useEffect(() => {
-        // setBoard(createBoard(boardCols, boardRows));
-        setCells(createCells());
+        setCurrentCells(generateInitialCellBlocks());
+    }, [])
+
+    useEffect(() => {
+
     }, [])
 
     return (
         <div style={ { height: `${boardHeight}px`, width: `${boardWidth}px`, backgroundSize: `${cellSize}px ${cellSize}px` } } className="grid">
-            {cells.map((current) => {
-                return <Cell size={cellSize} active={false} />
-            })}
+            {currentCells}
         </div>
     )
 }
