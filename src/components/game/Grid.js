@@ -5,41 +5,28 @@ import Cell from './Cell.js';
 import '../../scss/Grid.scss';
 
  // height of the board can be determined by the size of each cell since i know that we need a 25 by 25 cell grid
- const cellSize = 20;
+ const cellSize = 25;
 
- const boardHeight = 500;
- const boardWidth = 500;
+ const boardHeight = cellSize * cellSize;
+ const boardWidth = cellSize * cellSize;
 
 // caclulate how many rows and columns there are
 const boardRows = boardHeight / cellSize;
 const boardCols = boardWidth / cellSize;
 
-const createBoard = (numOfCols, numOfRows) => {
-//    const board = { 
-//         columns: Array.from({ length: numOfCols }, (x, i) => i), 
-//         rows: Array.from({ length: numOfRows }, (y, i) => i), 
-//         cord: []
+// const createBoard = (numOfCols, numOfRows) => {
+//     let board = new Array(numOfRows);
+
+//     for (let y = 0; y < numOfRows; y++) {
+//         board[y] = new Array(numOfCols);
 //     }
 
-    let board = new Array(numOfRows);
-
-    for (let y = 0; y < numOfRows; y++) {
-        board[y] = new Array(numOfCols);
-    }
-
-    return board;
-}
+//     return board;
+// }
 
 const createCells = () => {
-    let cellArray = [];
-
-    for (let i = 0; i < boardRows; i++) {
-
-        for (let j = 0; j < boardCols; j++) {
-            cellArray.push(<Cell />)
-        }
-    }
-
+    let cellArray = Array.from({ length: cellSize * cellSize});
+    
     return cellArray;
 }
 
@@ -49,15 +36,15 @@ const Grid = () => {
     const [cells, setCells] = useState([]);
 
     useEffect(() => {
-        setBoard(createBoard(boardCols, boardRows));
+        // setBoard(createBoard(boardCols, boardRows));
         setCells(createCells());
     }, [])
 
-    console.log(cells);
-
     return (
         <div style={ { height: `${boardHeight}px`, width: `${boardWidth}px`, backgroundSize: `${cellSize}px ${cellSize}px` } } className="grid">
-            {cells}
+            {cells.map((current) => {
+                return <Cell size={cellSize} active={false} />
+            })}
         </div>
     )
 }

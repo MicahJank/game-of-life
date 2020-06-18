@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 
-const Cell = () => {
+const Cell = ({ size, active }) => {
 
     return (
-        <button style={{ width: '20px', height: '20px'}} className="cell-block">
+        <button style={{ width: size, height: size, backgroundColor: active ? `black` : `` }} className="cell-block">
 
         </button>
     )

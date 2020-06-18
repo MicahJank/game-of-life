@@ -7,7 +7,7 @@
     .grid-presets-container {
         display: flex;
         flex-direction: column;
-        width: 50%;
+        width: 100%;
     }
     
     .presets-container {
@@ -31,7 +31,7 @@
     .grid-presets {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        // justify-content: space-between;
 
         // .grid {
         //     width: 84%;
