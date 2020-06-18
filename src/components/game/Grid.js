@@ -19,13 +19,18 @@ const generateInitialCellBlocks = () => {
     // using the code below i think i can figure out a way to set up initial blocks being preset with the preset buttons
     // console.log(cellArray[0])
     // cellArray[0] = <Cell cellIndex={0} size={cellSize} active={true} />
-
-
     return cellArray;
 }
 
-const toggleActive = (active) => {
-    return !active;
+const updateCurrentCells = (currentCells) => {
+    // TODO - THINK I MIGHT NEED REDUX FOR THIS
+    // let activeCells = currentCells.map((current) => {
+    //     if (current.props.active)
+    // })
+}
+
+const generateNextCells = () => {
+
 }
 
 const Grid = () => {  
@@ -34,11 +39,26 @@ const Grid = () => {
     const [currentCells, setCurrentCells] = useState([]);
     const [nextCells, setNextCells] = useState([]);
 
+    // initializes cell grid
     useEffect(() => {
         setCurrentCells(generateInitialCellBlocks());
     }, [])
 
+    // updates cells
     useEffect(() => {
+        // runs the code every 1 second
+        setTimeout(() => {
+            console.log('Hello, World!')
+          }, 1000);
+
+    }, [])
+
+    // generates next cell grid
+    useEffect(() => {
+        // runs the code every 1 second
+        setTimeout(() => {
+            console.log('Hello, World!')
+          }, 1000);
 
     }, [])
 
