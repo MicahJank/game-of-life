@@ -17,6 +17,11 @@ const Grid = () => {
 
     const dispatch = useDispatch();
 
+    // initializes the empty grid when the web page loads
+    useEffect(() => {
+       dispatch(actions.grid.initializeGrid(<Cell size={cellSize} active={false} />, cellSize));
+    }, [])
+
     // updates cells
     useEffect(() => {
         // runs the code every 1 second
@@ -37,9 +42,10 @@ const Grid = () => {
 
     return (
         <div style={ { height: `${boardHeight}px`, width: `${boardWidth}px`, backgroundSize: `${cellSize}px ${cellSize}px` } } className="grid">
-            {currentGrid.map((current) => {
+            {/* {currentGrid.map((current) => {
                 return <Cell cellIndex={current} size={cellSize} active={false} />
-            })}
+            })} */}
+            {currentGrid}
         </div>
     )
 }

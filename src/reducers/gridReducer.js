@@ -1,11 +1,15 @@
-let gridSize = 25 * 25;
 const intialState = {
-    currentCells: Array.from({ length: gridSize }),
+    currentCells: [],
     nextCells: []
 }
 
 const gridReducer = (state=intialState, action) => {
     switch (action.type) {
+        case 'INIT_GRID':
+            return {
+                ...state,
+                currentCells: action.payload
+            }
 
         default:
             return state;
