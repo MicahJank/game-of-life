@@ -1,6 +1,8 @@
 const intialState = {
     currentCells: [],
-    nextCells: []
+    nextCells: [],
+    gameStart: false,
+    gamePause: false
 }
 
 const gridReducer = (state=intialState, action) => {

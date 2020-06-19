@@ -19,12 +19,18 @@ const Grid = () => {
 
     // initializes the empty grid when the web page loads
     useEffect(() => {
-       dispatch(actions.grid.initializeGrid(<Cell size={cellSize} active={false} />, cellSize));
+        let gridSize = cellSize * cellSize;
+        let cellArray = [];
+    
+        for (let i = 0; i < gridSize; i++) {
+            cellArray.push(<Cell size={cellSize} active={false} index={i} />);
+        }
+       dispatch(actions.grid.initializeGrid(cellArray));
     }, [])
 
     // updates cells
     useEffect(() => {
-        // runs the code every 1 second
+        // runs the code after 1 second
         setTimeout(() => {
             console.log('Hello, World!')
           }, 1000);
@@ -33,7 +39,7 @@ const Grid = () => {
 
     // generates next cell grid
     useEffect(() => {
-        // runs the code every 1 second
+        // runs the code after 1 second
         setTimeout(() => {
             console.log('Hello, World!')
           }, 1000);
@@ -42,9 +48,6 @@ const Grid = () => {
 
     return (
         <div style={ { height: `${boardHeight}px`, width: `${boardWidth}px`, backgroundSize: `${cellSize}px ${cellSize}px` } } className="grid">
-            {/* {currentGrid.map((current) => {
-                return <Cell cellIndex={current} size={cellSize} active={false} />
-            })} */}
             {currentGrid}
         </div>
     )
