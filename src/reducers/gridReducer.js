@@ -1,5 +1,6 @@
+let gridSize = 25 * 25;
 const intialState = {
-    currentCells: [],
+    currentCells: Array.from({ length: gridSize }),
     nextCells: []
 }
 
