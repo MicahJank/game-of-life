@@ -14,6 +14,7 @@ import '../../scss/Grid.scss';
 
 const Grid = () => {  
     const currentGrid = useSelector(state => state.grid.currentCells);
+    const gameRunning = useSelector(state => state.grid.gameStart);
 
     const dispatch = useDispatch();
 
@@ -28,16 +29,12 @@ const Grid = () => {
        dispatch(actions.grid.initializeGrid(cellArray));
     }, [])
 
-    // updates cells
     useEffect(() => {
-        // runs the code after 1 second
-        setTimeout(() => {
-            console.log('Hello, World!')
-          }, 1000);
 
-    }, [])
+        
 
-    // generates next cell grid
+    }, [gameRunning])
+
     useEffect(() => {
         // runs the code after 1 second
         setTimeout(() => {

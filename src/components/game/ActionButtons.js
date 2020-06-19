@@ -5,9 +5,9 @@ const ActionButtons = () => {
 
     return (
         <div className="action-btns-container">
-            <ActionButton />
-            <ActionButton />
-            <ActionButton />
+            <ActionButton name={'Start'} />
+            <ActionButton name={'Stop'} />
+            <ActionButton name={'Clear'} />
         </div>
     )
 }
