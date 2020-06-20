@@ -30,7 +30,17 @@ const Grid = () => {
     }, [])
 
     useEffect(() => {
+        /*
+        PLAN
+        First thing that needs to happen is the we need to replace the current cells in state with the next set of cells in our state
 
+        */
+        // first check if we are starting or stopping the game
+        if (gameRunning) {
+            
+        } else {
+
+        }
         
 
     }, [gameRunning])

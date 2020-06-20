@@ -17,7 +17,7 @@ const Cell = ({ size, active, index }) => {
     }
 
     const clickCell = () => {
-        
+        // checks the current condition of the cell and either removes the cell from the state or adds it
         if (cellActive === true) {
             dispatch(actions.grid.removeCell(index));
         } else {

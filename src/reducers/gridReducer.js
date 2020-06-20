@@ -1,6 +1,7 @@
 const intialState = {
     currentCells: [],
-    nextCells: [],
+    nextGrid: [],
+    activeCells: [],
     gameStart: false,
 }
 
@@ -9,7 +10,8 @@ const gridReducer = (state=intialState, action) => {
         case 'INIT_GRID':
             return {
                 ...state,
-                currentCells: action.payload
+                currentCells: action.payload,
+                nextGrid: action.payload
             }
 
         case 'TOGGLE_START':
@@ -21,13 +23,13 @@ const gridReducer = (state=intialState, action) => {
         case 'ADD_ACTIVE_CELL':
             return {
                 ...state,
-                nextCells: [...state.nextCells, state.currentCells[action.payload]]
+                activeCells: [...state.activeCells, state.currentCells[action.payload]]
             }
 
         case 'REMOVE_CELL':
             return {
                 ...state,
-                nextCells: state.nextCells.filter(current => current.props.index !== action.payload)
+                activeCells: state.activeCells.filter(current => current.props.index !== action.payload)
             }
 
         default:
