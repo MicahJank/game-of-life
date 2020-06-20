@@ -15,6 +15,8 @@ import '../../scss/Grid.scss';
 const Grid = () => {  
     const currentGrid = useSelector(state => state.grid.currentCells);
     const gameRunning = useSelector(state => state.grid.gameStart);
+    const activeCells = useSelector(state => state.grid.activeCells);
+    const nextGrid = useSelector(state => state.grid.nextGrid);
 
     const dispatch = useDispatch();
 
@@ -24,7 +26,7 @@ const Grid = () => {
         let cellArray = [];
     
         for (let i = 0; i < gridSize; i++) {
-            cellArray.push(<Cell size={cellSize} active={false} index={i} />);
+            cellArray.push({ index: i, active: false });
         }
        dispatch(actions.grid.initializeGrid(cellArray));
     }, [])
@@ -37,11 +39,12 @@ const Grid = () => {
         */
         // first check if we are starting or stopping the game
         if (gameRunning) {
-            
+            dispatch(actions.grid.generateNextGrid());
         } else {
 
         }
         
+        console.log(nextGrid);
 
     }, [gameRunning])
 
@@ -55,7 +58,11 @@ const Grid = () => {
 
     return (
         <div style={ { height: `${boardHeight}px`, width: `${boardWidth}px`, backgroundSize: `${cellSize}px ${cellSize}px` } } className="grid">
-            {currentGrid}
+            {
+                currentGrid.map((current) => {
+                    return <Cell size={cellSize} active={current.active} index={current.index} />
+                })
+            }
         </div>
     )
 }

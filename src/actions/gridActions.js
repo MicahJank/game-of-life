@@ -6,13 +6,8 @@ const initializeGrid = (cellArray) => dispatch => {
     dispatch({ type: 'INIT_GRID', payload: cellArray });
 }
 
-const generateNextGrid =() => dispatch => {
-    // while (gameRunning) {
-    //     // runs the code after 1 second
-    //     setTimeout(() => {
-    //         console.log('Hello, World!')
-    //       }, 1000);    
-    // }
+const generateNextGrid = () => dispatch => {
+    dispatch({ type: 'GENERATE_GRID' })
 
 }
 
