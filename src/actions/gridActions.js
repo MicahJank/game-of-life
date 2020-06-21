@@ -5,16 +5,16 @@
 const initializeGrid = (cellArray) => dispatch => {
     dispatch({ type: 'INIT_GRID', payload: cellArray });
 }
+// updates the grid with the new grid
+const updateGrid = () => dispatch => {
+    dispatch({ type: 'UPDATE_GRID' })
+}
 
 const generateNextGrid = () => dispatch => {
     dispatch({ type: 'GENERATE_GRID' })
 
 }
 
-// updates the grid with the new grid
-const updateGrid = () => dispatch => {
-    
-}
 
 const toggleStart = () => dispatch => {
     dispatch({ type: 'TOGGLE_START' })

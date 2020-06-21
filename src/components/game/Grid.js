@@ -17,6 +17,7 @@ const Grid = () => {
     const gameRunning = useSelector(state => state.grid.gameStart);
     const activeCells = useSelector(state => state.grid.activeCells);
     const nextGrid = useSelector(state => state.grid.nextGrid);
+    const state = useSelector(state => state.grid)
 
     const dispatch = useDispatch();
 
@@ -38,13 +39,17 @@ const Grid = () => {
 
         */
         // first check if we are starting or stopping the game
-        if (gameRunning) {
-            dispatch(actions.grid.generateNextGrid());
+        if (gameRunning === true) {
+            // apply rules for game of life
+            
+            setTimeout(() => {
+                console.log('Hello, World!')
+                dispatch(actions.grid.generateNextGrid());
+                dispatch(actions.grid.updateGrid());
+              }, 1000);
         } else {
-
+            console.log("game end")
         }
-        
-        console.log(nextGrid);
 
     }, [gameRunning])
 

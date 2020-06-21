@@ -43,9 +43,16 @@ const gridReducer = (state=intialState, action) => {
                 }
                 return currentCell;
             })
+
             return {
                 ...state,
                 nextGrid: nextGrid
+            }
+
+        case 'UPDATE_GRID':
+            return {
+                ...state,
+                currentCell: state.nextGrid
             }
 
         default:
