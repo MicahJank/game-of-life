@@ -81,7 +81,7 @@ const Grid = () => {
                         });
                         
                         // gridCopy is the grid that we can manipulate while the 'grid' is being displayed to the user
-                        if (neighbors < 2 || neighbors > 3) {
+                        if ((grid[rowIndex][colIndex] === 1 && neighbors < 2) || (grid[rowIndex][colIndex] === 1 && neighbors > 3)) {
                             gridCopy[rowIndex][colIndex] = 0;
                         } else if (grid[rowIndex][colIndex] === 0 && neighbors === 3) {
                             gridCopy[rowIndex][colIndex] = 1;
@@ -114,7 +114,8 @@ const Grid = () => {
                             border: '1px solid black'
                         }} clickFunction={clickFunction} 
                             key={`${i}-${k}`} row={i} col={k} 
-                            currentGrid={currentGrid} />
+                            currentGrid={currentGrid}
+                            gameRunning={running} />
                     })
                 )}
 

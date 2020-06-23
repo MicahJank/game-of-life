@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import actions from '../../actions';
 
 
-const Cell = ({ clickFunction, key, row, col, currentGrid, styles }) => {
+const Cell = ({ clickFunction, key, row, col, currentGrid, styles, gameRunning }) => {
     // const [cellStyles, setCellStyles] = useState({
     //     width: 20,
     //     height: 20,
@@ -12,8 +12,14 @@ const Cell = ({ clickFunction, key, row, col, currentGrid, styles }) => {
     //     border: '1px solid black'
     // })
 
+    const toggleCell = () => {
+        if (!gameRunning) {
+            clickFunction(row, col)
+        }
+    }
+
     return (
-        <button onClick={() => clickFunction(row, col)} style={styles}>
+        <button onClick={toggleCell} style={styles}>
 
         </button>
     )
