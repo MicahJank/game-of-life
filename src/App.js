@@ -40,10 +40,6 @@ function App() {
   
 
   const clickHandler = (rowIndex, colIndex) => {
-    // let newGrid = grid.map((current) => current)
-    // newGrid[rowIndex][colIndex] = grid[rowIndex][colIndex] ? 0 : 1;
-    
-    // setGrid(newGrid);
     const newGrid = produce(grid, gridCopy => {
       gridCopy[rowIndex][colIndex] = grid[rowIndex][colIndex] ? 0 : 1;
     });
@@ -80,46 +76,6 @@ function App() {
         }
       })
     })
-    
-    // setGrid(g => {
-    //   let newGrid = grid.map((current) => [...current]);
-      
-    //   for (let i = 0; i < numRows; i++) { // i is 7
-    //     for (let k = 0; k < numCols; k++) {  // k is 20
-    //       let neighbors = 0;
-          
-    //       operations.forEach(([x,y]) => {
-    //         const newI = i + x; // 6
-    //         const newK = k + y; // 19
-  
-    //         // calculates the number of neighbors the current cell we are checking has
-    //         // note it only adds alive neighbors since g[newI][newK] will either return a 0 or 1 depending on its state
-    //         if (newI >= 0 && newI < numRows && newK >= 0 && newK < numCols) {
-    //           neighbors += grid[newI][newK];
-    //           // console.log(neighbors)
-    //         }
-    //       })
-  
-    //       // begin implementing the rules for the game of life
-    //       // any cell with less than 2 or greater than 3 dies - under population and overpopulation
-    //       if (neighbors < 2 || neighbors > 3) {
-    //         // console.log('cell is now dead at: ', [i,k])
-    //         newGrid[i][k] = 0
-    //       } 
-    //       // any dead cell with exactly 3 neighbors should become alive
-    //       else if(grid[i][k] === 0 && neighbors === 3) {
-    //         console.log('cell is now alive at: ', [i,k])
-    //         operations.forEach(([x,y]) => {
-    //           if(grid[i+x][k+y]) {
-    //             console.log([i+x],[k+y]);
-    //           }
-    //         })
-    //         newGrid[i][k] = 1;
-    //       }
-    //     }
-    //   }
-    //   return newGrid;
-    // })
 
     setTimeout(runSimulation, 1000);
   }, [])
@@ -134,7 +90,7 @@ function App() {
         runSimulation();
       }
     }}>{running ? 'Stop' : 'Start'}</button>
-    <div className="main"
+    {/* <div className="main"
       style={
         { display: 'grid',
           gridTemplateColumns: `repeat(${numCols}, 20px)`
@@ -151,6 +107,12 @@ function App() {
           }} />
         }) 
       )}
+
+    </div> */}
+    <div className="main">
+      <Title />
+      <GameContainer />
+      <About />
     </div>
     </>
   );

@@ -1,73 +1,56 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import actions from '../../actions';
+import produce from 'immer';
 
 import Cell from './Cell.js';
 
 import '../../scss/Grid.scss';
 
  // height of the board can be determined by the size of each cell since i know that we need a 25 by 25 cell grid
- const cellSize = 25;
+const numCols = 25;
+const numRows = 25;
 
- const boardHeight = cellSize * cellSize;
- const boardWidth = cellSize * cellSize;
 
-const Grid = () => {  
-    const currentGrid = useSelector(state => state.grid.currentCells);
-    const gameRunning = useSelector(state => state.grid.gameStart);
-    const activeCells = useSelector(state => state.grid.activeCells);
-    const nextGrid = useSelector(state => state.grid.nextGrid);
-    const state = useSelector(state => state.grid)
+// creates the initialGrid the user sees
+const initializeGrid = () => {
+    const rows = [];
+    for (let i = 0; i < numRows; i++) {
+      rows.push(Array.from(Array(numCols), () => 0))
+    }
+    return rows;
+}
 
-    const dispatch = useDispatch();
+const Grid = () => {
+    const [currentGrid, setCurrentGrid] = useState(initializeGrid());
+    const [nextGrid, setNextGrid] = useState(initializeGrid());  
 
-    // initializes the empty grid when the web page loads
-    useEffect(() => {
-        let gridSize = cellSize * cellSize;
-        let cellArray = [];
-    
-        for (let i = 0; i < gridSize; i++) {
-            cellArray.push({ index: i, active: false });
-        }
-       dispatch(actions.grid.initializeGrid(cellArray));
-    }, [])
+    const clickFunction = (rowIndex, colIndex) => {
+        const newGrid = produce(currentGrid, copyGrid => {
+            copyGrid[rowIndex][colIndex] = currentGrid[rowIndex][colIndex] ? 0 : 1;
+        });
 
-    useEffect(() => {
-        /*
-        PLAN
-        First thing that needs to happen is the we need to replace the current cells in state with the next set of cells in our state
-
-        */
-        // first check if we are starting or stopping the game
-        if (gameRunning === true) {
-            // apply rules for game of life
-            
-            setTimeout(() => {
-                console.log('Hello, World!')
-                dispatch(actions.grid.generateNextGrid());
-                dispatch(actions.grid.updateGrid());
-              }, 1000);
-        } else {
-            console.log("game end")
-        }
-
-    }, [gameRunning])
-
-    useEffect(() => {
-        // runs the code after 1 second
-        setTimeout(() => {
-            console.log('Hello, World!')
-          }, 1000);
-
-    }, [])
+        setCurrentGrid(newGrid);
+    }
 
     return (
-        <div style={ { height: `${boardHeight}px`, width: `${boardWidth}px`, backgroundSize: `${cellSize}px ${cellSize}px` } } className="grid">
-            {
-                currentGrid.map((current) => {
-                    return <Cell size={cellSize} active={current.active} index={current.index} />
-                })
-            }
+        <div style={
+            { display: 'grid',
+              gridTemplateColumns: `repeat(${numCols}, 20px)`
+            }} 
+            className="grid">
+                {currentGrid.map((rows, i) =>
+                    rows.map((cols, k) => {
+                        return <Cell styles={{
+                            width: 20,
+                            height: 20,
+                            backgroundColor: currentGrid[i][k] ? 'black' : undefined,
+                            border: '1px solid black'
+                        }} clickFunction={clickFunction} 
+                            key={`${i}-${k}`} row={i} col={k} 
+                            currentGrid={currentGrid} />
+                    })
+                )}
         </div>
     )
 }
