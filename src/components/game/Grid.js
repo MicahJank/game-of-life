@@ -5,8 +5,10 @@ import produce from 'immer';
 
 import Cell from './Cell.js';
 import ActionButtons from './ActionButtons.js';
+import ToggleGameBtn from './ToggleGameBtn.js';
 
 import '../../scss/Grid.scss';
+import ClearBtn from './ClearBtn';
 
  // height of the board can be determined by the size of each cell since i know that we need a 25 by 25 cell grid
 const numCols = 25;
@@ -119,7 +121,10 @@ const Grid = () => {
                     })
                 )}
 
-            <ActionButtons running={running} setRunning={setRunning} runningRef={runningRef} runGame={runGame} />
+            <div className='action-btns-container'>
+                <ToggleGameBtn running={running} setRunning={setRunning} runningRef={runningRef} runGame={runGame} />
+                <ClearBtn setCurrentGrid={setCurrentGrid} initializeGrid={initializeGrid} running={running} />
+            </div>
         </div>
     )
 }
