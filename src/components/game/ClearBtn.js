@@ -2,11 +2,12 @@ import React from 'react';
 import { Button } from 'semantic-ui-react';
 
 
-const ClearBtn = ({ running, setCurrentGrid, initializeGrid}) => {
+const ClearBtn = ({ setGeneration, running, setCurrentGrid, initializeGrid}) => {
 
     const action = () => {
         if (!running) {
             setCurrentGrid(initializeGrid())
+            setGeneration(0);
           }
     }
 

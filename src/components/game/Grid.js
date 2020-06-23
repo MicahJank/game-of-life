@@ -1,10 +1,7 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import actions from '../../actions';
+import React, { useState, useCallback, useRef } from 'react';
 import produce from 'immer';
 
 import Cell from './Cell.js';
-import ActionButtons from './ActionButtons.js';
 import ToggleGameBtn from './ToggleGameBtn.js';
 
 import '../../scss/Grid.scss';
@@ -38,9 +35,8 @@ const initializeGrid = () => {
     return rows;
 }
 
-const Grid = () => {
+const Grid = ({ setGeneration }) => {
     const [currentGrid, setCurrentGrid] = useState(initializeGrid());
-    const [nextGrid, setNextGrid] = useState(initializeGrid());
 
     // determines if the game simulation is running or not
     const [running, setRunning] = useState(false);
@@ -94,11 +90,16 @@ const Grid = () => {
             })
         })
 
+        setGeneration((prevGen) => {
+            const next = prevGen + 1;
+            return next;
+        })
+
         // replace currentGrid with the next grid
         // setCurrentGrid(nextGrid);
 
         // re-run the function after x ms
-        setTimeout(runGame, 1000);
+        setTimeout(runGame, 10);
     }, [])
 
     return (
@@ -123,7 +124,7 @@ const Grid = () => {
 
             <div className='action-btns-container'>
                 <ToggleGameBtn running={running} setRunning={setRunning} runningRef={runningRef} runGame={runGame} />
-                <ClearBtn setCurrentGrid={setCurrentGrid} initializeGrid={initializeGrid} running={running} />
+                <ClearBtn setGeneration={setGeneration} setCurrentGrid={setCurrentGrid} initializeGrid={initializeGrid} running={running} />
             </div>
         </div>
     )
