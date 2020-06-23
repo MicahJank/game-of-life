@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Grid from './Grid.js';
 import Presets from './Presets.js';
 import ActionButtons from './ActionButtons.js';
@@ -19,7 +19,7 @@ const GameContainer = () => {
                     <Presets />
 
                 </div>
-                <ActionButtons />
+                {/* <ActionButtons /> */}
             </div>
                 <Rules />
         </Container>
