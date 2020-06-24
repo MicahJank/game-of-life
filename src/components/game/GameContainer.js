@@ -15,14 +15,14 @@ const GameContainer = () => {
     return (
         <Container className="game-container">
             <div className="grid-presets-container">
-                <Header className='generation' as='h2'>Generation: #{generation} </Header>
                 <div className="grid-presets">
+                    <Header className='generation' as='h2'>Generation: #{generation} </Header>
                     <Grid setGeneration={setGeneration} />
-                    <Presets />
 
                 </div>
-            </div>
                 <Rules />
+            </div>
+                <Presets />
         </Container>
     )
 }
