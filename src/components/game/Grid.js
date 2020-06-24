@@ -6,6 +6,7 @@ import ToggleGameBtn from './ToggleGameBtn.js';
 
 import '../../scss/Grid.scss';
 import ClearBtn from './ClearBtn';
+import TimeSlider from './TimeSlider.js';
 
  // height of the board can be determined by the size of each cell since i know that we need a 25 by 25 cell grid
 const numCols = 25;
@@ -37,10 +38,14 @@ const initializeGrid = () => {
 
 const Grid = ({ setGeneration }) => {
     const [currentGrid, setCurrentGrid] = useState(initializeGrid());
+    
+    // i am using the speed in the useCallback hook - therefore i will need to make a ref of it so the speed can update properly
+    const [speed, setSpeed] = useState(1000); // default speed is 1000 ms
+    const speedRef = useRef(speed);
+    speedRef.current = speed;
 
     // determines if the game simulation is running or not
-    const [running, setRunning] = useState(false);
-    
+    const [running, setRunning] = useState(false);    
     const runningRef = useRef(running);
     runningRef.current = running;
   
@@ -100,8 +105,10 @@ const Grid = ({ setGeneration }) => {
         })
 
         // re-run the function after x ms
-        setTimeout(runGame, 1000);
+        setTimeout(runGame, speedRef.current);
     }, [])
+
+    console.log(speed)
 
     return (
         <div style={
@@ -126,6 +133,7 @@ const Grid = ({ setGeneration }) => {
             <div className='action-btns-container'>
                 <ToggleGameBtn running={running} setRunning={setRunning} runningRef={runningRef} runGame={runGame} />
                 <ClearBtn setGeneration={setGeneration} setCurrentGrid={setCurrentGrid} initializeGrid={initializeGrid} running={running} />
+                <TimeSlider speed={speed} setSpeed={setSpeed} />
             </div>
         </div>
     )
