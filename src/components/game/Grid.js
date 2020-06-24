@@ -40,7 +40,7 @@ const Grid = ({ setGeneration }) => {
     const [currentGrid, setCurrentGrid] = useState(initializeGrid());
     
     // i am using the speed in the useCallback hook - therefore i will need to make a ref of it so the speed can update properly
-    const [speed, setSpeed] = useState(1000); // default speed is 1000 ms
+    const [speed, setSpeed] = useState(1000); // speed is in ms
     const speedRef = useRef(speed);
     speedRef.current = speed;
 
