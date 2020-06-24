@@ -60,46 +60,47 @@ const Grid = ({ setGeneration }) => {
         if(!runningRef.current) {
             return;
         }
+  
+        // grid is the current value of the grid
+        // since i am mapping over it the returned result is a copy of the original and doesnt mutate the original
+        setCurrentGrid((grid) => {
+            return grid.map((rowValue, rowIndex) => {
+                // nested arrays inside grid so i need to map again to make sure the nested arrays are copied as well
+                return rowValue.map((colValue, colIndex) => { 
+                    let neighbors = 0;
 
-        setCurrentGrid(grid => {
-            return produce(grid, gridCopy => {
-                for (let rowIndex = 0; rowIndex < numRows; rowIndex++) {
-                    for (let colIndex = 0; colIndex < numCols; colIndex++) {
-                        let neighbors = 0;
-        
-                        operations.forEach(([x,y]) => {
-                            const newRowIndex = rowIndex + x;
-                            const newColIndex = colIndex + y;
-        
-                            if (newRowIndex >= 0 && newRowIndex < numRows && newColIndex >= 0 && newColIndex < numCols) {
-                                // grid is the current grid the user sees 
-                                // so our neighbors should be based on that
-                                neighbors += grid[newRowIndex][newColIndex]; 
-                            }
-                        });
-                        
-                        // gridCopy is the grid that we can manipulate while the 'grid' is being displayed to the user
-                        if ((grid[rowIndex][colIndex] === 1 && neighbors < 2) || (grid[rowIndex][colIndex] === 1 && neighbors > 3)) {
-                            gridCopy[rowIndex][colIndex] = 0;
-                        } else if (grid[rowIndex][colIndex] === 0 && neighbors === 3) {
-                            gridCopy[rowIndex][colIndex] = 1;
+                    operations.forEach(([x,y]) => {
+                        const newRowIndex = rowIndex + x;
+                        const newColIndex = colIndex + y;
+    
+                        if (newRowIndex >= 0 && newRowIndex < numRows && newColIndex >= 0 && newColIndex < numCols) {
+                            // current is the current grid the user sees 
+                            // so our neighbors should be based on that
+                            neighbors += grid[newRowIndex][newColIndex]; 
                         }
+                    });
+                    
+                    // gridCopy is the grid that we can manipulate while the 'grid' is being displayed to the user
+                    if ((grid[rowIndex][colIndex] === 1 && neighbors < 2) || (grid[rowIndex][colIndex] === 1 && neighbors > 3)) {
+                        return 0;
+                    } else if (grid[rowIndex][colIndex] === 0 && neighbors === 3) {
+                        return 1;
+                    } else {
+                        return colValue; 
                     }
-                }
 
+                })
             })
-        })
+        });
+
 
         setGeneration((prevGen) => {
             const next = prevGen + 1;
             return next;
         })
 
-        // replace currentGrid with the next grid
-        // setCurrentGrid(nextGrid);
-
         // re-run the function after x ms
-        setTimeout(runGame, 10);
+        setTimeout(runGame, 1000);
     }, [])
 
     return (
