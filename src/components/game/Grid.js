@@ -7,6 +7,7 @@ import ToggleGameBtn from './ToggleGameBtn.js';
 import '../../scss/Grid.scss';
 import ClearBtn from './ClearBtn';
 import TimeSlider from './TimeSlider.js';
+import Presets from './Presets.js';
 
  // height of the board can be determined by the size of each cell since i know that we need a 25 by 25 cell grid
 const numCols = 25;
@@ -108,9 +109,8 @@ const Grid = ({ setGeneration }) => {
         setTimeout(runGame, speedRef.current);
     }, [])
 
-    console.log(speed)
-
     return (
+        <>
         <div style={
             { display: 'grid',
               gridTemplateColumns: `repeat(${numCols}, 20px)`
@@ -136,6 +136,7 @@ const Grid = ({ setGeneration }) => {
                 <TimeSlider speed={speed} setSpeed={setSpeed} />
             </div>
         </div>
+        </>
     )
 }
 
