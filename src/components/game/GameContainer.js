@@ -7,6 +7,7 @@ import '../../scss/GameContainer.scss';
 
 import { Container, Header } from 'semantic-ui-react';
 
+
 const GameContainer = () => {
 
     // keeps track of the current loop/generation the game is in
@@ -20,9 +21,7 @@ const GameContainer = () => {
                     <Grid setGeneration={setGeneration} />
 
                 </div>
-                <Rules />
             </div>
-                <Presets />
         </Container>
     )
 }

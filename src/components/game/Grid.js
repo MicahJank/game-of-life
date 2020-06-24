@@ -8,6 +8,7 @@ import '../../scss/Grid.scss';
 import ClearBtn from './ClearBtn';
 import TimeSlider from './TimeSlider.js';
 import Presets from './Presets.js';
+import Rules from '../Rules.js';
 
  // height of the board can be determined by the size of each cell since i know that we need a 25 by 25 cell grid
 const numCols = 25;
@@ -37,6 +38,15 @@ const initializeGrid = () => {
     return rows;
 }
 
+// creates a grid with random values alive
+const generateRandom = () => {
+    const rows = [];
+    for (let i = 0; i < numRows; i++) {
+      rows.push(Array.from(Array(numCols), () => Math.random() > 0.7 ? 1: 0))
+    }
+    return rows;
+}
+
 const Grid = ({ setGeneration }) => {
     const [currentGrid, setCurrentGrid] = useState(initializeGrid());
     
@@ -57,6 +67,78 @@ const Grid = ({ setGeneration }) => {
         });
 
         setCurrentGrid(newGrid);
+    }
+
+    const setGridPreset = (preset) => {
+        let grid = initializeGrid();
+
+        switch(preset) {
+            case 'beacon':
+                grid[11][11] = 1;
+                grid[11][12] = 1;
+                grid[12][11] = 1;
+                grid[12][12] = 1;
+                grid[13][13] = 1;
+                grid[14][13] = 1;
+                grid[13][14] = 1;
+                grid[14][14] = 1;
+                break;
+
+            case 'Pentadecathlon':
+                grid[8][11] = 1;
+                grid[9][11] = 1;
+                grid[10][11] = 1;
+                grid[11][11] = 1;
+                grid[12][11] = 1;
+                grid[13][11] = 1;
+                grid[14][11] = 1;
+                grid[15][11] = 1;
+
+                grid[8][12] = 1;
+                grid[10][12] = 1;
+                grid[11][12] = 1;
+                grid[12][12] = 1;
+                grid[13][12] = 1;
+                grid[15][12] = 1;
+
+                grid[8][13] = 1;
+                grid[9][13] = 1;
+                grid[10][13] = 1;
+                grid[11][13] = 1;
+                grid[12][13] = 1;
+                grid[13][13] = 1;
+                grid[14][13] = 1;
+                grid[15][13] = 1;
+                break;
+
+            case 'LWSS-Spaceship':
+                grid[4][3] = 1;
+                grid[5][3] = 1;
+
+                grid[3][4] = 1;
+                grid[4][4] = 1;
+                grid[5][4] = 1;
+
+                grid[3][5] = 1;
+                grid[4][5] = 1;
+                grid[6][5] = 1;
+
+                grid[4][6] = 1;
+                grid[5][6] = 1;
+                grid[6][6] = 1;
+
+                grid[5][7] = 1;
+                break;
+
+            case 'Generate Random':
+                grid = generateRandom();
+                break;
+                
+            default:
+                return grid;
+        }
+
+        setCurrentGrid(grid);
     }
 
     // useCallback will return a memoised version of the function - i.e. should speed up the application since it will
@@ -111,31 +193,35 @@ const Grid = ({ setGeneration }) => {
 
     return (
         <>
-        <div style={
-            { display: 'grid',
-              gridTemplateColumns: `repeat(${numCols}, 20px)`
-            }} 
-            className="grid">
-                {currentGrid.map((rows, i) =>
-                    rows.map((cols, k) => {
-                        return <Cell styles={{
-                            width: 20,
-                            height: 20,
-                            backgroundColor: currentGrid[i][k] ? 'black' : undefined,
-                            border: '1px solid black'
-                        }} clickFunction={clickFunction} 
-                            key={`${i}-${k}`} row={i} col={k} 
-                            currentGrid={currentGrid}
-                            gameRunning={running} />
-                    })
-                )}
+        <div className='grid-rules'>
+            <div style={
+                { display: 'grid',
+                gridTemplateColumns: `repeat(${numCols}, 20px)`
+                }} 
+                className="grid">
+                    {currentGrid.map((rows, i) =>
+                        rows.map((cols, k) => {
+                            return <Cell styles={{
+                                width: 20,
+                                height: 20,
+                                backgroundColor: currentGrid[i][k] ? 'black' : undefined,
+                                border: '1px solid black'
+                            }} clickFunction={clickFunction} 
+                                key={`${i}-${k}`} row={i} col={k} 
+                                currentGrid={currentGrid}
+                                gameRunning={running} />
+                        })
+                    )}
 
-            <div className='action-btns-container'>
-                <ToggleGameBtn running={running} setRunning={setRunning} runningRef={runningRef} runGame={runGame} />
-                <ClearBtn setGeneration={setGeneration} setCurrentGrid={setCurrentGrid} initializeGrid={initializeGrid} running={running} />
-                <TimeSlider speed={speed} setSpeed={setSpeed} />
+                <div className='action-btns-container'>
+                    <ToggleGameBtn running={running} setRunning={setRunning} runningRef={runningRef} runGame={runGame} />
+                    <ClearBtn setGeneration={setGeneration} setCurrentGrid={setCurrentGrid} initializeGrid={initializeGrid} running={running} />
+                    <TimeSlider speed={speed} setSpeed={setSpeed} />
+                </div>
             </div>
+            <Rules />
         </div>
+        <Presets setGridPreset={setGridPreset} />
         </>
     )
 }

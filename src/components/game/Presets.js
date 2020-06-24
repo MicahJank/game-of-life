@@ -3,14 +3,14 @@ import React from 'react';
 import Preset from './Preset.js';
 
 
-const Presets = () => {
+const Presets = ({setGridPreset}) => {
 
     return (
         <div className="presets-container">
-            <Preset />
-            <Preset />
-            <Preset />
-            <Preset />
+            <Preset name='beacon' setGridPreset={setGridPreset} />
+            <Preset name='Pentadecathlon' setGridPreset={setGridPreset} />
+            <Preset name='LWSS-Spaceship' setGridPreset={setGridPreset} />
+            <Preset name='Generate Random' setGridPreset={setGridPreset} />
         </div>
     )
 }
