@@ -11,7 +11,7 @@ import Presets from './Presets.js';
 import Rules from '../Rules.js';
 
  // height of the board can be determined by the size of each cell since i know that we need a 25 by 25 cell grid
-const numCols = 25;
+const numCols = 50;
 const numRows = 25;
 
 // operations
@@ -205,7 +205,6 @@ const Grid = ({ setGeneration }) => {
                                 width: 20,
                                 height: 20,
                                 backgroundColor: currentGrid[i][k] ? 'white' : undefined,
-                                border: 'none'
                             }} clickFunction={clickFunction} 
                                 key={`${i}-${k}`} row={i} col={k} 
                                 currentGrid={currentGrid}
