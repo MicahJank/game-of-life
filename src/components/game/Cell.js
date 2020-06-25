@@ -19,7 +19,7 @@ const Cell = ({ clickFunction, key, row, col, currentGrid, styles, gameRunning }
     }
 
     return (
-        <button onClick={toggleCell} style={styles}>
+        <button className='cell' onClick={toggleCell} style={styles}>
 
         </button>
     )

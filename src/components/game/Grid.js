@@ -204,8 +204,8 @@ const Grid = ({ setGeneration }) => {
                             return <Cell styles={{
                                 width: 20,
                                 height: 20,
-                                backgroundColor: currentGrid[i][k] ? 'black' : undefined,
-                                border: '1px solid black'
+                                backgroundColor: currentGrid[i][k] ? 'white' : undefined,
+                                border: 'none'
                             }} clickFunction={clickFunction} 
                                 key={`${i}-${k}`} row={i} col={k} 
                                 currentGrid={currentGrid}

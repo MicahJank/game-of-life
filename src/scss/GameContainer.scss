@@ -20,7 +20,7 @@
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
-        border-bottom: 3px solid black;
+        // border-bottom: 3px solid black;
         padding: 10px 0;
         
         .preset-container {
@@ -44,7 +44,7 @@
 
     .rules-container {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         width: 20%;
     
         h2 {
@@ -60,5 +60,17 @@
     .grid-rules {
         display: flex;
         justify-content: center;
+    }
+}
+
+.cell {
+    background-color: black;
+    
+    &:focus {
+        outline: none;
+    }
+    
+    &:hover {
+        background-color: white;
     }
 }

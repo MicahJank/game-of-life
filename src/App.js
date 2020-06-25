@@ -13,7 +13,7 @@ function App() {
     <div className="main">
       <Title />
       <GameContainer />
-      <About />
+      {/* <About /> */}
     </div>
     </>
   );
