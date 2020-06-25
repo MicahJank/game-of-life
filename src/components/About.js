@@ -7,7 +7,7 @@ const About = () => {
     return (
         <div className="about-container">
             <Header as='h2'>About this Algorithm</Header>
-            <p>Lorem Ipsum stuff here...</p>
+            <p></p>
         </div>
     )
 }

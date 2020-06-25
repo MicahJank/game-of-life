@@ -1,20 +1,20 @@
-.grid {
-    display: flex;
-    flex-wrap: wrap;
-    // background-color: black;
-    // background-image: linear-gradient(rgba(255, 255, 255, 0.2) .1em, transparent .1em), linear-gradient(90deg, rgba(255, 255, 255, 0.2) .1em, transparent .1em);
+// .grid {
+//     display: flex;
+//     flex-wrap: wrap;
+//     // background-color: black;
+//     // background-image: linear-gradient(rgba(255, 255, 255, 0.2) .1em, transparent .1em), linear-gradient(90deg, rgba(255, 255, 255, 0.2) .1em, transparent .1em);
 
-    .cell-block {
-        border: 1px solid #161616;
-        outline: none;
+//     .cell-block {
+//         border: 1px solid #161616;
+//         outline: none;
 
-        &:hover {
-            cursor: pointer;
-            background-color: #0000008a;
-        }
-    }
+//         &:hover {
+//             cursor: pointer;
+//             background-color: #0000008a;
+//         }
+//     }
 
-    .cell-block.active {
-        background-color: black;
-    }
-}
+//     .cell-block.active {
+//         background-color: black;
+//     }
+// }

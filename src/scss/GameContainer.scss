@@ -1,24 +1,32 @@
 .game-container {
     display: flex;
-    // justify-content: center;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
 
     
     .grid-presets-container {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: center;
         width: 100%;
+
+        .generation {
+            align-self: start;
+        }
     }
     
     .presets-container {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-between;
-        width: 30%;
+        width: 100%;
+        // border-bottom: 3px solid black;
+        padding: 10px 0;
         
         .preset-container {
             align-items: center;
             display: flex;
+            flex-direction: column;
             justify-content: space-around;
             width: 100%;
             
@@ -30,18 +38,13 @@
 
     .grid-presets {
         display: flex;
-        flex-direction: row;
-        // justify-content: space-between;
-
-        // .grid {
-        //     width: 84%;
-        // }
+        flex-direction: column;
     }
     
 
     .rules-container {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         width: 20%;
     
         h2 {
@@ -52,5 +55,23 @@
     .action-btns-container {
         display: flex;
         justify-content: flex-start;
+    }
+
+    .grid-rules {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.cell {
+    background-color: rgba(0, 0, 0, 0.562);
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    
+    &:focus {
+        outline: none;
+    }
+    
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.603);
     }
 }

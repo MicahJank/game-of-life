@@ -1,8 +1,11 @@
-.body {
+body {
     box-sizing: border-box;
+    background-image: url('../imgs/Background-website-01.jpg');
+    background-size: cover;
 }
 .main {
     display: flex;
     flex-direction: column;
     text-align: center;
+    
 }
