@@ -1,21 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Conways Game of Life - React Implementation
 
-## Available Scripts
+<img width="100px" src="https://icons-for-free.com/iconfiles/png/512/design+development+facebook+framework+mobile+react+icon-1320165723839064798.png" />This is a React implementation of Conways Game of Life, you can read more about the Game of Life [here](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) 
 
-In the project directory, you can run:
+### About
 
-### `npm start`
+This project was made as part of my curriculum for Lambda School, It was created to study algorthims and to see how Turing Completeness works.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Build Status
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[![Build Status](https://travis-ci.org/{MicahJank}/{game-of-life}.png?branch=master)](https://travis-ci.org/{MicahJank}/{game-of-life})
 
 ### `npm run build`
 
