@@ -10,17 +10,16 @@ This project was made as part of my curriculum for Lambda School, It was created
 
 [![Build Status](https://travis-ci.org/{MicahJank}/{game-of-life}.png?branch=master)](https://travis-ci.org/{MicahJank}/{game-of-life})
 
-### `npm run build`
+### Check it Out
+Feel free to check out the Game of Life [here](https://game-of-life-snowy.vercel.app/)
+<img src='https://i.ibb.co/6chHTy8/image.png' alt='conways game of life screenshot' />
+- click anywhere in the Grid to place down your own squares
+- select from some of the prebuilt configurations
+- adjust speed as desired
+- click start and watch how the squares come to life
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
+### Tech used
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
