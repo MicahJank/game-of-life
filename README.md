@@ -88,7 +88,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - micahjank@gmail.com
+Micah Jank - micahjank@gmail.com
 
 ### Attribution
 
