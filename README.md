@@ -20,41 +20,76 @@ Feel free to check out the Game of Life [here](https://game-of-life-snowy.vercel
 
 
 ### Tech used
+* [React](https://reactjs.org/)
+* [Semantic UI](https://react.semantic-ui.com/)
+* [node-sass](https://www.npmjs.com/package/node-sass)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<!-- GETTING STARTED -->
+## Getting Started
+To get a local copy up and running follow these simple example steps.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Fork the repo
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. Clone the repo
+```sh
+git clone https://github.com/MicahJank/game-of-life.git
+```
+3. Install NPM packages
+```sh
+npm install
+```
+4. run npm start in your terminal
+```JS
+npm start
+```
 
-## Learn More
+# Contributing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
-### Code Splitting
+## Issue/Bug Request
+   
+ **If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
+ - Check first to see if your issue has already been reported.
+ - Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
+ - Create a live example of the problem.
+ - Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes,  where you believe the issue is originating from, and any potential solutions you have considered.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Feature Requests
 
-### Analyzing the Bundle Size
+We would love to hear from you about new features which would improve this app and further the aims of our project. Please provide as much detail and information as possible to show us why you think your new feature should be implemented.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Pull Requests
 
-### Making a Progressive Web App
+If you have developed a patch, bug fix, or new feature that would improve this app, please submit a pull request. It is best to communicate your ideas with the developers first before investing a great deal of time into a pull request to ensure that it will mesh smoothly with the project.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Remember that this project is licensed under the MIT license, and by submitting a pull request, you agree that your work will be, too.
 
-### Advanced Configuration
+#### Pull Request Guidelines
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- Ensure any install or build dependencies are removed before the end of the layer when doing a build.
+- Update the README.md with details of changes to the interface, including new plist variables, exposed ports, useful file locations and container parameters.
+- Ensure that your code conforms to our existing code conventions and test coverage.
+- Include the relevant issue number, if applicable.
+- You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+<!-- LICENSE -->
+## License
 
-### `npm run build` fails to minify
+Distributed under the MIT License. See `LICENSE` for more information.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+<!-- CONTACT -->
+## Contact
+
+Your Name - micahjank@gmail.com
+
+### Attribution
+
+These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426).
