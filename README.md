@@ -8,7 +8,7 @@ This project was made as part of my curriculum for Lambda School, It was created
 
 ### Build Status
 
-[![Build Status](https://travis-ci.org/{MicahJank}/{game-of-life}.png?branch=master)](https://travis-ci.org/{MicahJank}/{game-of-life})
+[![Build Status](https://travis-ci.org/MicahJank/game-of-life.svg?branch=master)](https://travis-ci.org/MicahJank/game-of-life)
 
 ### Check it Out
 Feel free to check out the Game of Life [here](https://game-of-life-snowy.vercel.app/)
